@@ -1,15 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+// const colors = require("colors");
 
+const databaseConnect = async () => {
+  try {
+    const conn = await mongoose.connect("mongodb+srv://priyakiruthi21:dY4cnxHusMnhkxSD@kiruthidb.ci4cnyg.mongodb.net/?retryWrites=true&w=majority", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
-const databaseConnect = () =>{
-    mongoose.connect(process.env.DATABASE_URL,{
-        useNewUrlParser : true,
-        useUnifiedTopology : true,
-        useCreateIndex : true
-    }).then(()=>{
-        console.log('Mongodb database connect....')
-    }).catch(error=>{
-        console.log(error)
-    })
-}
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.error(`Error: ${error.message}`);
+    process.exit(1); // Exit with a non-zero status code to indicate an error
+  }
+};
 module.exports = databaseConnect;

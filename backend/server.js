@@ -19,7 +19,7 @@ app.use('/api/messenger',authRouter);
 app.use('/api/messenger',messengerRoute);
 
 app.get('/',(req,res)=>{
-    res.send('ok');
+    res.send('ok');s
 })
 
 databaseConnect();

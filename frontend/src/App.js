@@ -5,11 +5,13 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Messenger from './components/Messenger';
 import ProtectRoute from './components/ProtectRoute';
+import MyChats from './components/MyChats';
 function App() {
   return (
         <Router>
             <Switch>
                 <Route path='/messenger/login' component={Login} exact></Route>
+                <Route path='/jeev' component={MyChats}></Route>
                 <Route path='/messenger/register' component={Register} exact></Route>
                 <ProtectRoute path='/' component={Messenger} exact />
             </Switch>
